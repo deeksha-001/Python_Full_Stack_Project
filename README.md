@@ -1,32 +1,34 @@
 # 🏋️‍♀️ FitnessLog – Personal Fitness Tracker
 
-FitnessLog is a full-stack **fitness tracking application** built with **React**, **Supabase (PostgreSQL)**, and **Python**.  
+**FitnessLog** is a full-stack **fitness tracking application** built with **React**, **Supabase (PostgreSQL)**, and **Python**.  
 It helps users log workouts, track attendance, monitor progress, and visualize fitness data over time.
 
 ---
 
 ## 🚀 Features
 
-- **User Registration & Login** (Supabase Auth)
-- **Workout Tracking**: Record exercises, sets, reps, weights, or hours spent.
-- **Attendance Log**: Track days attended each month.
-- **Progress Monitoring**: View summaries and charts of your activities.
+- **User Registration & Login** (Supabase Auth)  
+- **Workout Tracking**: Record exercises, sets, reps, weights, or hours spent.  
+- **Attendance Log**: Track days attended each month.  
+- **Progress Monitoring**: View summaries and charts of your activities.  
 - **Responsive UI** built with React or Streamlit frontend.
 
 ---
 
 ## 🗄️ Database Schema (Supabase / PostgreSQL)
 
-| Table        | Purpose                                    | Key Columns (examples) |
-|--------------|--------------------------------------------|------------------------|
-| **users**    | Stores user profiles                       | id, name, email, age, weight, height |
-| **workouts** | Logs individual workouts                   | id, user_id, date, exercise, duration, calories |
-| **attendance** | Tracks days attended per month           | id, user_id, date, status |
-| **progress** | Stores monthly progress summaries           | id, user_id, month, weight_change, notes |
+| Table          | Purpose                               | Key Columns (examples) |
+|----------------|---------------------------------------|------------------------|
+| **users**      | Stores user profiles                  | id, name, email, age, weight, height |
+| **workouts**   | Logs individual workouts              | id, user_id, date, exercise, duration, calories |
+| **attendance** | Tracks days attended per month        | id, user_id, date, status |
+| **progress**   | Stores monthly progress summaries     | id, user_id, month, weight_change, notes |
 
 ---
 
-## Project Structure
+## 📁 Project Structure
+
+
 
 FITNESS_TRACKER/
 |
@@ -54,18 +56,18 @@ FITNESS_TRACKER/
 - A Supabase account
 - Git(Push, Clone) 
 
-### 1. Clone or Download the project
-# Option 1: Clone with Git
+## 1. Clone or Download the project
+### Option 1: Clone with Git
 git clone <repositary-url>
 
-# Option 2: Download and extract the ZIP file
+### Option 2: Download and extract the ZIP file
 
-### 2. Install Dependencies
+## 2. Install Dependencies
 
-# Install all required Python packages
+### Install all required Python packages
 pip install -r requirements.txt
 
-### 3. Set Up Supabase Database
+## 3. Set Up Supabase Database
 
 1.Create a Supabase Project:
 
@@ -82,9 +84,9 @@ CREATE TABLE membership_plans (
 
 ```
 
-3.**Get your credentials:
+3.**Get your credentials**:
 
-### 4. Configure Environmental Variables
+## 4. Configure Environmental Variables
 
 1. Create a `.env` file in the project root
 
@@ -92,7 +94,7 @@ CREATE TABLE membership_plans (
 SUPABASE_URL = your_project_url
 SUPABASE_KEY = your_anon_key
 
-### 5. Run the application
+## 5. Run the application
 
 ## Streamlit Frontend
 streamlit run frontend/app.py
@@ -101,7 +103,7 @@ The app will open in your browser at 'http://localhost:8080'
 
 ## FastAPI backend
 
-cd api
+**cd api**
 python main.py
 
 The API will be available at 'http://localhost:8000'
