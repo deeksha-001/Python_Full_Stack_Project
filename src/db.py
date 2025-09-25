@@ -13,28 +13,20 @@ supabase = create_client(url, key)
 # MEMBERSHIP_PLANS TABLE
 #-----------
 
-# Create Plan
 def create_plan(name, duration_days):
     return supabase.table("membership_plans").insert({
         "name": name,
         "duration_days": duration_days
     }).execute()
 
-# Get All Plans
 def get_all_plans():
     return supabase.table("membership_plans").select("*").order("id").execute()
 
-# Update Plan
-def update_plan(plan_id, name=None, duration_days=None):
-    data = {}
-    if name is not None:
-        data["name"] = name
-    if duration_days is not None:
-        data["duration_days"] = duration_days
-
+def update_plan(plan_id, data: dict):
+    if not data:
+        return {"error": "no data provided"}
     return supabase.table("membership_plans").update(data).eq("id", plan_id).execute()
 
-# Delete Plan
 def delete_plan(plan_id):
     return supabase.table("membership_plans").delete().eq("id", plan_id).execute()
 
@@ -53,18 +45,18 @@ def create_user(name, email, join_date, membership_plan_id):
 def get_all_users():
     return supabase.table("users").select("*").order("id").execute()
 
-def update_user(user_id, data:dict ):
+def update_user(user_id, data: dict):
     if not data:
         return {"error": "no data provided"}
-    return supabase.table("users").update(data).eq("id",user_id).execute()
+    return supabase.table("users").update(data).eq("id", user_id).execute()
 
 def delete_user(user_id):
-    return supabase.table("users").delete().eq("id",user_id).execute()
+    return supabase.table("users").delete().eq("id", user_id).execute()
+
 
 # -------
 # SESSIONS TABLE
 # -------
-
 def create_session(user_id, hours, workout_type, date=None):
     session_data = {
         "user_id": user_id,
@@ -90,10 +82,10 @@ def update_session(session_id, data: dict):
 def delete_session(session_id):
     return supabase.table("sessions").delete().eq("id", session_id).execute()
 
+
 # ----------
 # WORKOUT_LOGS TABLE
 # ----------
-
 def create_workout_log(session_id, exercise, sets, reps):
     log_data = {
         "session_id": session_id,
@@ -116,5 +108,3 @@ def update_workout_log(log_id, data: dict):
 
 def delete_workout_log(log_id):
     return supabase.table("workout_logs").delete().eq("id", log_id).execute()
-
-
