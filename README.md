@@ -28,8 +28,6 @@ It helps users log workouts, track attendance, monitor progress, and visualize f
 
 ## 📁 Project Structure
 
-
-
 FITNESS_TRACKER/
 |
 |---src/        # core application login
